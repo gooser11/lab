@@ -4,8 +4,9 @@ public class ThreadedAnimationView extends Thread{
 
     AnimationView av;
 
-    public ThreadedAnimationView(){
-        av = new AnimationView(av.getContext());
+    public ThreadedAnimationView(AnimationView aniView){
+        aniView = av;
+
     }
 
     @Override
