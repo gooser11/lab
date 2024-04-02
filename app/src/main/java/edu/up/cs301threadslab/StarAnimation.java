@@ -71,11 +71,22 @@ public class StarAnimation extends Animation {
         this.twinkle = true;
     }//draw
 
-    /** the seekbar progress specifies the brightnes of the stars. */
+    /** the seekbar progress specifies the amount of stars. */
+    public int oldProg;
     @Override
     public void progressChange(int newProgress) {
+        // compare old prog with new prog
+
+        // if new prog greater than old prog, add a star
+
+        // if new prog less than old prog, remove a star
+
+
+        /*
         int brightness = 255 - (newProgress * 2);
         Star.starPaint.setColor(Color.rgb(brightness, brightness, brightness));
         this.twinkle = false;
+        */
+
     }
 }//class StarAnimation
