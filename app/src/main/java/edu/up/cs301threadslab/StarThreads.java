@@ -22,18 +22,17 @@ public class StarThreads implements Runnable {
     public void run() {
         while (true) {
 
-            if (rand.nextBoolean()) {
-                sa.addStar(); //add star
-            } else if (rand.nextBoolean()) {
-                sa.removeStar(); //remove star
-            }
+                if (rand.nextBoolean()) {
+                    sa.addStar(); //add star
+                } else if (rand.nextBoolean()) {
+                    sa.removeStar(); //remove star
+                }
 
-            try {
-                Thread.sleep(40);
-            } catch (InterruptedException e) {
-                // interrupted
+                try {
+                    Thread.sleep(2);
+                } catch (InterruptedException e) {
+                    // interrupted
+                }
             }
-
         }
     }
-}

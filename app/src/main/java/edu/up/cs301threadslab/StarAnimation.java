@@ -51,28 +51,32 @@ public class StarAnimation extends Animation {
         int x = rand.nextInt(width);
         int y = rand.nextInt(height);
 
-
-        field.add(new Star(x, y));
+        synchronized (this) {
+            field.add(new Star(x, y));
+        }
     }//addStar
 
     /** removes a random star from the field */
     public void removeStar() {
         if (field.size() > 100) {
-            int index = rand.nextInt(field.size());
-            field.remove(index);
+            synchronized (this) {
+                int index = rand.nextInt(field.size());
+                field.remove(index);
+            }
         }
     }//removeStar
 
     /** draws the next frame of the animation */
     @Override
     public void draw(Canvas canvas) {
-        for (Star s : field) {
-            s.draw(canvas);
-            if (this.twinkle) {
-                s.twinkle();
+        synchronized (this) {
+            for (Star s : field) {
+                s.draw(canvas);
+                if (this.twinkle) {
+                    s.twinkle();
+                }
             }
         }
-
         this.twinkle = true;
     }//draw
 
