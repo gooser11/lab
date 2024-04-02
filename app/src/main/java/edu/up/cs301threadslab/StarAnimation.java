@@ -24,8 +24,11 @@ public class StarAnimation extends Animation {
     /** ctor expects to be told the size of the animation canvas */
     public StarAnimation(int initWidth, int initHeight) {
         super(initWidth, initHeight);
-        StarThreads stThread = new StarThreads();
-        stThread.run(this);
+        // run thread
+        StarThreads stThread = new StarThreads(this);
+        Thread starRun = new Thread(stThread);
+        starRun.start();
+
     }
 
     /** whenever the canvas size changes, generate new stars */
