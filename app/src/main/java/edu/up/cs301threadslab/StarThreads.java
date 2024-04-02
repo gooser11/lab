@@ -14,9 +14,9 @@ import java.util.Random;
 public class StarThreads {
 
     public void run(StarAnimation starAnim){
+        Random rand = new Random();
         while(true){
 
-            Random rand = new Random();
 
             try{
                 if (rand.nextBoolean()){
