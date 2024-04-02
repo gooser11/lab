@@ -5,8 +5,7 @@ public class ThreadedAnimationView extends Thread{
     AnimationView av;
 
     public ThreadedAnimationView(AnimationView aniView){
-        aniView = av;
-
+        av = aniView;
     }
 
     @Override
