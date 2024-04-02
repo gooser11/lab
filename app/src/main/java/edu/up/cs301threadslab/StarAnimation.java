@@ -75,14 +75,31 @@ public class StarAnimation extends Animation {
     public int oldProg;
     @Override
     public void progressChange(int newProgress) {
-        // compare old prog with new prog
 
-        // if new prog greater than old prog, add a star
+        // if new prog greater than old prog, add stars
+        if ( newProgress > oldProg){
+            for (int i=0; i < newProgress-oldProg; i++) {
+                for (int j = 0; j < 10; j++) {
+                    addStar();
+                }
+            }
+        }
 
-        // if new prog less than old prog, remove a star
+        // if new prog less than old prog, remove stars
+        else if (newProgress < oldProg){
+            for (int i=0; i < oldProg - newProgress; i++) {
+                for (int j = 0; j < 10; j++) {
+                    removeStar();
+                }
+            }
+        }
 
+        this.twinkle = false;
 
-        /*
+        //make current progress the old progress
+        oldProg = newProgress;
+
+        /* og code to change brightness
         int brightness = 255 - (newProgress * 2);
         Star.starPaint.setColor(Color.rgb(brightness, brightness, brightness));
         this.twinkle = false;
